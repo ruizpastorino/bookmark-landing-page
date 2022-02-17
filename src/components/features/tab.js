@@ -4,10 +4,10 @@ const tab = ({ title, onSelect, active }) => {
   return (
     <div
       tabIndex={0}
-      className={`tab flex-1 touchable text-center ${active ? "tab-active" : ""}`}
+      className={`tab touchable text-center ${active ? "tab-active" : ""}`}
       onClick={onSelect}
     >
-      <p className="small-title">{title}</p>
+      <a className="small-title">{title}</a>
     </div>
   );
 };

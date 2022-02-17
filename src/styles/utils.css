@@ -37,3 +37,10 @@
 .strong-text{
   font-weight: bold;
 }
+.dark-text{
+  color: #404040;
+}
+
+.hidden{
+  display:none
+}

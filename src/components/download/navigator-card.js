@@ -1,5 +1,5 @@
 import React from "react";
-import dots from "../assets/images/bg-dots.svg";
+import dots from "../../assets/images/bg-dots.svg";
 
 const NavigatorCard = ({ image, navigator, version }) => {
   return (
@@ -8,9 +8,9 @@ const NavigatorCard = ({ image, navigator, version }) => {
         <div className="card-img">
           <img src={image} alt="" />
         </div>
-        <p style={{ marginTop: "20px" }} className="strong-text">
+        <h3 style={{ marginTop: "20px"  }} className="strong-text">
           Add to {navigator}
-        </p>
+        </h3>
         <p style={{ fontSize: "12px", marginTop: "10px" }}>Minimun version {version}</p>
       </div>
       <img src={dots} alt="" className="w-100" />

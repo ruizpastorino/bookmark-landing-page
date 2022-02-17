@@ -1,6 +1,6 @@
 import React from "react";
 
-const Banner = ({
+const Spot = ({
   image,
   title,
   content,
@@ -9,15 +9,15 @@ const Banner = ({
   titleSize = "medium-title",
 }) => {
   return (
-    <div className={`fade-in row spot ${align === "right" ? "" : "row-reverse"}`}>
+    <div className={`fade-in spot spot-${align}`}>
       <div className="spot-text-wrapper center-all">
         <div className="w-100">
           <h2 className={titleSize}>{title}</h2>
         </div>
         <p>{content}</p>
         <div className="row w-100">
-          {buttons.map(({ variant, title, action }) => (
-            <button className={variant} onClick={action}>
+          {buttons.map(({ variant, title, action }, idx) => (
+            <button key={idx} className={variant} onClick={action}>
               {title}
             </button>
           ))}
@@ -31,4 +31,4 @@ const Banner = ({
   );
 };
 
-export default Banner;
+export default Spot;

@@ -3,6 +3,9 @@
   margin: 0%;
   padding: 0%;
 }
+html {
+  overflow-x: hidden;
+}
 body {
   font-family: "Rubik", sans-serif;
   letter-spacing: 0.05rem;
@@ -11,7 +14,7 @@ body {
 }
 p {
   font-size: 18px;
-  color: #999999;
+  color: hsl(229, 8%, 60%);
 }
 button,
 a {
@@ -22,26 +25,50 @@ a {
   cursor: pointer;
   transition: all 200ms;
 }
+a:hover,
+.footer a:hover,
+.question:hover a,
+.soft-red-text {
+  color: hsl(0, 94%, 66%);
+}
 button {
-  padding: 12px;
+  padding: 16px;
   border: transparent;
   border-radius: 5px;
   min-width: 120px;
   min-height: 35px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: all 100ms linear;
   font-weight: bolder;
 }
-button:active {
+button:active,
+button:focus {
   outline: solid 2px #404040;
-  background-color: transparent;
+  background-color: white;
   color: #404040;
 }
 
+input {
+  border: transparent solid 0px;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: left !important;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: #cfcfcf;
+}
+.desktop-hidden {
+  display: none !important;
+}
 .app-container {
   margin: 0% auto;
-  width: 80%;
+  padding: 0% 10%;
+  max-width: 1440px;
+  width: 100%;
 }
 .touchable {
   cursor: pointer;
@@ -57,6 +84,9 @@ button:active {
   padding: 30px 0px;
   margin-top: 20px;
 }
+.navbar .row {
+  align-items: center;
+}
 .navbar > h4 {
   flex: 1;
 }
@@ -64,8 +94,11 @@ button:active {
 .navbar button {
   margin: 0px 30px;
 }
-.navbar a:active {
-  color: hsl(0, 94%, 66%);
+a:active {
+  opacity: 0.5;
+}
+.mobile-menu {
+  display: none;
 }
 .small-title {
   font-size: 15px;
@@ -82,16 +115,22 @@ button:active {
 .spot {
   margin: 100px 0px;
   height: auto;
-  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .spot-text-wrapper {
-  padding: 10px 50px;
+  padding: 10px 20px;
   width: 50%;
   height: 100%;
+  min-height: 400px;
 }
 .spot-image-wrapper {
   width: 50%;
   position: relative;
+  min-height: 400px;
+}
+.spot-left {
+  flex-direction: row-reverse;
 }
 .spot p {
   margin: 30px 0px;
@@ -106,24 +145,29 @@ button:active {
   background-color: hsl(0, 94%, 66%);
   color: white;
 }
-.soft-red-button:active {
+.soft-red-button:active,
+.soft-red-button:focus {
   outline: solid 2px hsl(0, 94%, 66%);
-  background-color: transparent;
+  background-color: white;
   color: hsl(0, 94%, 66%);
 }
 .soft-blue-button {
   background-color: hsl(231, 69%, 60%);
   color: white;
 }
-.soft-blue-button:active {
+.soft-blue-button:active,
+.soft-blue-button:focus {
   outline: solid 2px hsl(231, 69%, 60%);
-  background-color: transparent;
+  background-color: white;
+  color: hsl(231, 69%, 60%);
+}
+.soft-blue-text {
   color: hsl(231, 69%, 60%);
 }
 
 .rounded-shape {
   height: 300px;
-  width: 500px;
+  width: 1000px;
   background-color: hsl(231, 69%, 60%);
   position: absolute;
   z-index: -1;
@@ -143,48 +187,299 @@ button:active {
 }
 
 .tab {
-  border-bottom: #cfcfcf solid 2px;
+  border-bottom: #cfcfcf solid 1px;
   padding-bottom: 20px;
+  flex: 1;
+  margin: 20px 0px;
 }
 .tab-active {
   border-bottom: solid 4px hsl(0, 94%, 66%);
 }
+.tab:focus,
+.tab:hover {
+  outline: none;
+  color: hsl(0, 94%, 66%);
+}
 .stretch-container {
-  width: 60%;
-  min-width: 400px;
+  width: 100%;
+  max-width: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .stretch-container > p {
   width: 80%;
-  min-width: 400px;
+  min-width: 350px;
   text-align: center;
 }
-.card{
+.card {
   height: 350px;
   width: 250px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   margin: 0px 10px;
 }
-.card:nth-child(2){
+.card:nth-child(2) {
   margin-top: 20px;
 }
-.card:nth-child(3){
+.card:nth-child(3) {
   margin-top: 40px;
 }
-.fade-in{
+
+.question {
+  border-bottom: solid rgba(0, 0, 0, 0.25) 1px;
+  width: 100%;
+  padding: 25px 0px;
+  padding-right: 20px;
+}
+.question a {
+  font-size: 18px;
+}
+.question .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.question p {
+  margin-top: 50px;
+}
+.question:first-child {
+  border-top: solid rgba(0, 0, 0, 0.25) 1px;
+}
+
+.contact-container {
+  background-color: hsl(231, 69%, 60%);
+  padding: 20px;
+  min-height: 350px;
+  color: white;
+  text-align: center;
+}
+
+.contact-container p {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: white;
+}
+.contact-wrapper {
+  max-width: 500px;
+  text-align: center;
+}
+.contact-container h2 {
+  width: 90%;
+}
+.input-container {
+  position: relative;
+  flex: 1;
+  margin-right: 20px;
+  height: auto;
+}
+.input-wrapper {
+  background-color: white;
+  border-radius: 5px;
+  border: solid 3px white;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.input-wrapper-error {
+  border: solid 3px hsl(0, 94%, 66%);
+}
+.input-wrapper img {
+  height: 25px;
+  margin: 0px 5px;
+}
+.input-error {
+  position: absolute;
+  padding: 5px;
+  background-color: hsl(0, 94%, 66%);
+  width: 100%;
+  bottom: -25px;
+  text-align: left;
+  border-radius: 3px;
+}
+.input-error p {
+  height: 15px;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.footer {
+  width: 100%;
+  background-color: hsl(229, 31%, 21%);
+  padding: 50px 0px;
+}
+.footer a {
+  color: white;
+}
+.footer a i {
+  font-size: 30px;
+  margin: 0px 20px;
+}
+.footer-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+.footer .row {
+  align-items: center;
+}
+
+.fade-in {
   animation: fadeIn 500ms linear;
 }
 
 @keyframes fadeIn {
-  from{
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  * {
+    text-align: center;
+  }
+  .desktop-hidden {
+    display: inline-block!important;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+  .navbar > .row {
+    justify-content: flex-start;
+  }
+  .mobile-menu {
+    display: inline-block!important;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: hsl(229, 31%, 21%);
+    opacity: 0.925;
+    display: flex;
+    flex-direction: column;
+    transition: all 300ms;
+  }
+  .mobile-navigation>.row{
+    justify-content: space-between;
+    width: 100%;
+  }
+  .mobile-navigation{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 50px;
+  }
+  .mobile-menu i{
+    font-size: 20px;
+    color:white
+  }
+  .mobile-navigation a{
+    color: white;
+    padding: 30px 0px;
+    border-bottom:solid 1px rgba(250,250,250, 0.25);
+    width: 100%;
+    font-size: 18px;
+  }
+  .mobile-menu button{
+    width: 100%;
+    background-color: transparent;
+    border:solid 2px white;
+    color: white;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+  .mobile-media{
+    padding:30px
+    ;margin-bottom: 30px;
+  }
+  .mobile-media i{
+    margin: 0px 20px;
+    font-size: 30px;
+  }
+  .spot button {
+    width: 50px;
+  }
+  .row {
+    justify-content: center;
+  }
+  .spot .row {
+    flex-wrap: nowrap;
+  }
+  .mobile-hidden {
+    display: none !important;
+  }
+  .spot {
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+  }
+  .spot-image-wrapper,
+  .spot-text-wrapper {
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .rounded-shape {
+    height: 200px;
+    bottom: 125px;
+    bottom: -0px;
+  }
+
+  .shape-left {
+    margin-right: 100px;
+  }
+  .shape-right {
+    margin-left: 100px;
+  }
+  .features .row {
+    flex-wrap: wrap;
+  }
+  .tab {
+    flex: unset;
+    width: 100%;
+  }
+  .card {
+    margin-top: 0%;
+  }
+  .question a {
+    font-size: 12px;
+  }
+  .contact-container .row {
+    flex-wrap: wrap;
+  }
+  .input-wrapper,
+  .contact-container button {
+    flex: unset;
+    width: 100%;
+  }
+  .input-container {
+    margin-right: 0px;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .input-error {
+    position: static;
+  }
+  .app-container > .row {
+    flex-direction: column;
+  }
+  .footer-navigation {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .footer-navigation a {
+    margin: 20px 0px;
+  }
+  .footer-navigation .row * {
+    width: 100%;
   }
 }

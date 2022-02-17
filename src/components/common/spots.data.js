@@ -1,7 +1,7 @@
-import coverImage from "../assets/images/illustration-hero.svg";
-import tabImage1 from "../assets/images/illustration-features-tab-1.svg";
-import tabImage2 from "../assets/images/illustration-features-tab-2.svg";
-import tabImage3 from "../assets/images/illustration-features-tab-3.svg";
+import coverImage from "../../assets/images/illustration-hero.svg";
+import tabImage1 from "../../assets/images/illustration-features-tab-1.svg";
+import tabImage2 from "../../assets/images/illustration-features-tab-2.svg";
+import tabImage3 from "../../assets/images/illustration-features-tab-3.svg";
 
 const moreInfoButton = { title: "More Info", variant: "soft-blue-button" };
 

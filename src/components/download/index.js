@@ -1,8 +1,8 @@
 import React from "react";
 import NavigatorCard from "./navigator-card";
-import chromeLogo from "../assets/images/logo-chrome.svg";
-import firefoxLogo from "../assets/images/logo-firefox.svg";
-import operaLogo from "../assets/images/logo-opera.svg";
+import chromeLogo from "../../assets/images/logo-chrome.svg";
+import firefoxLogo from "../../assets/images/logo-firefox.svg";
+import operaLogo from "../../assets/images/logo-opera.svg";
 
 const Download = () => {
   return (
