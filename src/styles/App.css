@@ -6,32 +6,48 @@
 body {
   font-family: "Rubik", sans-serif;
   letter-spacing: 0.05rem;
-  color: #404040;
+  color: rgb(43, 57, 75);
+  overflow-x: hidden;
 }
-p,
+p {
+  font-size: 18px;
+  color: #999999;
+}
 button,
 a {
   font-size: 12px;
 }
 
-a{
+a {
   cursor: pointer;
   transition: all 200ms;
 }
 button {
-  padding: 8px;
+  padding: 12px;
   border: transparent;
   border-radius: 5px;
   min-width: 120px;
   min-height: 35px;
-  color: white;
-  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  transition: all 100ms linear;
+  font-weight: bolder;
+}
+button:active {
+  outline: solid 2px #404040;
+  background-color: transparent;
+  color: #404040;
 }
 
 .app-container {
   margin: 0% auto;
   width: 80%;
+}
+.touchable {
+  cursor: pointer;
+}
+.touchable:active {
+  opacity: 0.5;
 }
 .navbar {
   display: flex;
@@ -39,31 +55,136 @@ button {
   justify-content: flex-start;
   align-items: center;
   padding: 30px 0px;
+  margin-top: 20px;
 }
 .navbar > h4 {
   flex: 1;
 }
-.nav-item, .navbar button {
+.nav-item,
+.navbar button {
   margin: 0px 30px;
-
 }
-.navbar a:active{
-    color: hsl(0, 94%, 66%)
+.navbar a:active {
+  color: hsl(0, 94%, 66%);
 }
-.cover{
+.small-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+.big-title {
+  font-size: 42px;
+  font-weight: bold;
+}
+.medium-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.spot {
   margin: 100px 0px;
+  height: auto;
+  height: 400px;
 }
-.cover h2{
-  font-size: 40px
+.spot-text-wrapper {
+  padding: 10px 50px;
+  width: 50%;
+  height: 100%;
+}
+.spot-image-wrapper {
+  width: 50%;
+  position: relative;
+}
+.spot p {
+  margin: 30px 0px;
+}
+.spot button {
+  width: 150px;
+  margin: 10px 0px;
+  margin-right: 20px;
 }
 
 .soft-red-button {
   background-color: hsl(0, 94%, 66%);
-  transition: all 100ms linear;
+  color: white;
 }
 .soft-red-button:active {
-  border: solid 2px hsl(0, 94%, 66%);
+  outline: solid 2px hsl(0, 94%, 66%);
   background-color: transparent;
   color: hsl(0, 94%, 66%);
-  font-weight: bolder;
+}
+.soft-blue-button {
+  background-color: hsl(231, 69%, 60%);
+  color: white;
+}
+.soft-blue-button:active {
+  outline: solid 2px hsl(231, 69%, 60%);
+  background-color: transparent;
+  color: hsl(231, 69%, 60%);
+}
+
+.rounded-shape {
+  height: 300px;
+  width: 500px;
+  background-color: hsl(231, 69%, 60%);
+  position: absolute;
+  z-index: -1;
+  bottom: 0%;
+}
+
+.shape-right {
+  border-radius: 200px 0px 0px 200px;
+  margin-left: 200px;
+  left: 0px;
+}
+
+.shape-left {
+  border-radius: 0px 200px 200px 0px;
+  margin-right: 200px;
+  right: 0px;
+}
+
+.tab {
+  border-bottom: #cfcfcf solid 2px;
+  padding-bottom: 20px;
+}
+.tab-active {
+  border-bottom: solid 4px hsl(0, 94%, 66%);
+}
+.stretch-container {
+  width: 60%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stretch-container > p {
+  width: 80%;
+  min-width: 400px;
+  text-align: center;
+}
+.card{
+  height: 350px;
+  width: 250px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+}
+.card:nth-child(2){
+  margin-top: 20px;
+}
+.card:nth-child(3){
+  margin-top: 40px;
+}
+.fade-in{
+  animation: fadeIn 500ms linear;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
