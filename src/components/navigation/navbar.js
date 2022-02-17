@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo-bookmark.svg";
 import MobileMenu from "./mobile-menu";
 
 const Navbar = () => {
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className="navbar">
       <div className="row flex-1">
